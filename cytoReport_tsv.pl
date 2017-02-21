@@ -298,17 +298,6 @@ foreach my $aberration (@aberrations){
 
 ##########################################################################################
 
-##########################################################################################
-# Get NOTES for aberration intervals, if they exist
-
-#INTERVALS
-my @intervals = $xmldoc->findnodes('/report/notes/intervalsNotes/intervalNote/interval');
-
-#Interval NOTES
-my @notes = $xmldoc->findnodes('/report/notes/intervalsNotes/intervalNote/note/noteText');
-
-##########################################################################################
-
 
 ##########################################################################################
 # OPEN interval based report (ibr) file 
@@ -571,12 +560,15 @@ foreach my $key (sort keys (%aberrations_info)){
 		$worksheet->write($line, 10, $genes);
 	}
 	
-	# get note for $interval
-	my $note = $xmldoc->findnodes("/report/notes/intervalsNotes/intervalNote/
+	# get notes for $interval
+	my $notes = $xmldoc->findnodes("/report/notes/intervalsNotes/intervalNote/
 		interval[text( )= '$interval2note' ]/../note/noteText");
+
+	my $separator = '; ';
+	my $separatedNotes = $notes->to_literal_delimited($separator);
 		
 	#column 11
-	$worksheet->write($line, 11, $note);
+	$worksheet->write($line, 11, $separatedNotes);
 	
 	#line counter increase
 	$line++;
