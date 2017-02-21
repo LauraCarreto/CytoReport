@@ -12,8 +12,8 @@
 #	the user to restart with different files.
 #
 # NOTES: The web page cytoReport.html is used to upload the two input files and direct
-#	filenames as arguments to this file using the perl CGI module.
-#	Secure mode -T was disabled so that system commands could be passed to convert 
+#	filenames as arguments to the perl CGI script (cytoReport_tsv.pl).
+#	Secure mode -T in cytoReport_tsv.pl was disabled so that system commands could be passed to convert 
 # 	the excel workbook to csv (ssconvert), change comma separators to tab separators,
-#	and change line separators from linefeed to "|" (vertical tab symbol).
-#       The input files and the csv file are deleted after processing.
+#	and line separators from linefeed to "|" (vertical tab symbol), to output the tsv file.
+#     The input files and the csv file are deleted after processing.
