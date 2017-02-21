@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<style>
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    font-family: verdana;
+    color: white;
+    text-align: center;
+    font-size: 44px;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+    text-align: center;
+}
+
+input[type=file] {
+    width: 22%;
+    padding: 6px 6px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    background-color:orange;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+</style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Upload Files</title>
+</head>
+<body>
+<form action="http://localhost/cgi-bin/cytoReport_tsv.pl" method="post"
+enctype="multipart/form-data" >
+<h1>Welcome to CytoReport</h1>
+<p>Select files to process: <input type="file" name="multiple_files" 
+multiple = "true"/></p>
+<p><input type="submit" name="Submit" value="Process Files"  /></p>
+</form>
+</body>
+</html>
