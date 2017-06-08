@@ -565,6 +565,7 @@ foreach my $key (sort keys (%aberrations_info)){
 		interval[text( )= '$interval2note' ]/../note/noteText");
 
 	my $separator = '; ';
+	$separator =~  s/[ ]/\n/g; #regex to substitute space in $separator by newline - results in each note starting in a new line
 	my $separatedNotes = $notes->to_literal_delimited($separator);
 		
 	#column 11
