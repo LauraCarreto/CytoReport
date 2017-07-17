@@ -567,7 +567,13 @@ foreach my $key (sort keys (%aberrations_info)){
 	my $separator = '; ';
 	$separator =~  s/[ ]/\n/g; #regex to substitute space in $separator by newline - results in each note starting in a new line
 	my $separatedNotes = $notes->to_literal_delimited($separator);
-		
+
+	#regex to remove the double hyphen '--' found when word coincides with a line break
+	$separatedNotes =~ s/-\n-//g;
+
+	#regex to replace 'en dash' (looks longer than a minus sign; is causing parsing problems) by an 'hyphen' (-)
+	$separatedNotes =~ s/\x{2013}/-/g;
+				
 	#column 11
 	$worksheet->write($line, 11, $separatedNotes);
 	
